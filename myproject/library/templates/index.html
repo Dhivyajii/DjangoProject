@@ -12,6 +12,7 @@
     <nav>
         <div class="logo"><h1>Welcome to Django </h1></div>
          <div class="links">
+            <a href="{% url 'add_book' %}">AddBook</a>
          <a href="{% url 'about' %}">About</a>
          <a href="{% url 'contact' %}">Contact</a></div>
     </nav>
@@ -19,6 +20,8 @@
         {% for book in books %}
            <p>Book title: {{book.title|upper}}</p>
            <p>Status: {{book.is_available}}</p>
+           <a href="{% url 'update_book' book.id %}">Edit</a> | 
+            <a href="{% url 'delete_book' book.id %}" style="color: red;">Delete</a>
         {% endfor %}
 
     </div>
